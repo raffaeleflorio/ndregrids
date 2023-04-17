@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Ndregrids</title>
+    <link rel="stylesheet" href="/webjars/bulma/css/bulma.min.css"/>
+    <script type="module" src="/js/ndregrids.js"></script>
+</head>
+<body class="p-6">
+<main class="columns is-centered is-vcentered is-multiline is-mobile">
+    {#for grid in grids}
+    <article id="ndregrid-{grid.id}" class="column is-narrow has-text-centered">
+        <div class="block">
+            <table class="table is-bordered is-size-1 is-invisible">
+                <tbody>
+                {#for row in grid.rows}
+                <tr>
+                    {#for column in row.columns}
+                    <td>{column}</td>
+                    {/for}
+                </tr>
+                {/for}
+                </tbody>
+            </table>
+            <button class="button js-show-button" data-ndregrid="{grid.id}">Show</button>
+        </div>
+    </article>
+    {/for}
+</main>
+</body>
+</html>
